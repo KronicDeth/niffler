@@ -4,7 +4,9 @@ defmodule Niffler do
   @doc """
   Burrow for treasure.
   """
-  def burrow do
+  def burrow(timeout \\ :infinity, elapsed \\ 0)
+      when (timeout == :infinity or (is_integer(timeout) and 0 < timeout)) and is_integer(elapsed) and
+             elapsed >= 0 do
     :erlang.nif_error(:not_loaded)
   end
 
