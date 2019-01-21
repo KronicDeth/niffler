@@ -8,7 +8,8 @@ defmodule Niffler do
     :erlang.nif_error(:not_loaded)
   end
 
-  defp init do
+  @doc false
+  def init do
     case load_nif() do
       :ok -> :ok
       _ -> raise "An error occurred when loading Niffler."
